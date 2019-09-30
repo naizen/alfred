@@ -1,9 +1,9 @@
-# Chatkit getting started react one-to-one
+# Alfred
 
-This is a sample project that accompanies the [Creating one-to-one chat with
-React guide](https://pusher.com/docs/chatkit/guides/react-one-to-one).
+Alfred is a real-time chatbot assistant that incorporates NLP (Natural Language Processing).
 
-Install dependencies and start the app with
+## Built With
 
-    yarn
-    yarn start
+- [Pusher Chatkit](https://pusher.com/chatkit) - Build chat applications easily.
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces.
+- [Wit.ai](https://wit.ai) - Natural language processing platform.
