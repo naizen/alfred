@@ -71,7 +71,6 @@ function Chat(props) {
       .then(data => {
         //console.log('wit data: ', data);
         handleBotMessage(data);
-        setBotMessageLoading(false);
       });
   };
 
@@ -85,22 +84,27 @@ function Chat(props) {
       if (location) {
         getWeather(location).then(msg => {
           bot.sendSimpleMessage({ roomId: currentRoomId, text: msg });
+          setBotMessageLoading(false);
         });
       } else if (!location && currentLocation) {
         getWeather(null, currentLocation).then(msg => {
           bot.sendSimpleMessage({ roomId: currentRoomId, text: msg });
+          setBotMessageLoading(false);
         });
       } else if (!currentLocation && !location) {
         const msg = "I'd love to give you the weather but for where?";
         bot.sendSimpleMessage({ roomId: currentRoomId, text: msg });
+        setBotMessageLoading(false);
       }
     } else if (joke) {
       getJoke().then(joke => {
         bot.sendSimpleMessage({ roomId: currentRoomId, text: joke });
+        setBotMessageLoading(false);
       });
     } else if (greetings) {
       const msg = getGreeting();
       bot.sendSimpleMessage({ roomId: currentRoomId, text: msg });
+      setBotMessageLoading(false);
     }
   };
 
@@ -222,13 +226,13 @@ function Chat(props) {
       </div>
       <div className="prewritten py-3 px-4">
         <button
-          class="btn-primary-outline bg-transparent py-2 px-4 border rounded-full"
+          className="btn-primary-outline bg-transparent py-2 px-4 border rounded-full"
           onClick={() => handlePrewrittenMessage('Tell me a joke')}
         >
           Tell me a joke
         </button>
         <button
-          class="btn-primary-outline bg-transparent py-2 px-4 border rounded-full"
+          className="btn-primary-outline bg-transparent py-2 px-4 border rounded-full"
           onClick={() => handlePrewrittenMessage("What's the weather?")}
         >
           What's the weather?
