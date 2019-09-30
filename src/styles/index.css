@@ -1,27 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #ebedf0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.login-window {
+  max-width: 400px;
+  background: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  padding: 4rem;
+  width: 100%;
+}
+
+.alfred-avatar {
+  width: 100%;
+  max-width: 160px;
+  margin: auto;
+}
+
+.login {
+  text-align: center;
+}
+
+.chat-window {
+  max-width: 500px;
+  height: 650px;
+  background: #fafafa;
+  border-radius: 2px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 2rem 1rem 2rem;
+  width: 100%;
+}
+
 .Chat {
   height: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  width: 100%;
 }
 
 .Chat__titlebar {
   display: flex;
   align-items: center;
-  background: #ededed;
-  padding: 0rem 0.5rem;
+  background: #fff;
+  padding: 1rem;
   height: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .Chat__titlebar__avatar {
-  width: 3rem;
-  border-radius: 1.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
   margin-right: 1rem;
 }
 
 .Chat__titlebar__details {
   display: flex;
   flex-direction: column;
+  font-weight: 500;
 }
 
 .Chat__titlebar__details__presence {
@@ -31,9 +89,8 @@
 }
 
 .Chat__messages {
-  background-image: linear-gradient(#d3d3d3, #d0d0d0);
   flex: 1;
-  padding: 2rem 4rem;
+  padding: 2rem;
   overflow-y: scroll;
 }
 
@@ -61,6 +118,28 @@
   box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.08);
   display: block;
   position: relative;
+  z-index: 1;
+}
+
+.Chat__messages__message--loading {
+  min-width: 100px;
+}
+
+.loader-message {
+  text-align: center;
+}
+
+.loader-message svg {
+  margin: auto;
+  opacity: 0.5;
+}
+
+/*
+  Set the color of the icon
+*/
+.loader-message svg path,
+.loader-message svg rect {
+  fill: #2d3748;
 }
 
 .Chat__messages__message__seen {
@@ -98,15 +177,15 @@
 
 .Chat__messages__message__arrow.alt:after {
   transform: rotate(45deg) scaleY(-1);
-  border-top: 9px solid #542182;
+  border-top: 9px solid #323a45;
 }
 
 .Chat__messages__message--other {
-  background: #fefefe;
+  background: #fff;
 }
 
 .Chat__messages__message--self {
-  background: #542182;
+  background: #323a45;
   color: #ffffff;
 }
 
@@ -133,8 +212,6 @@
 }
 
 .Chat__compose__button {
-  border: 1px solid #c5c5c5;
-  background: none;
   margin-left: 1rem;
   padding: 0rem 1rem;
   border-radius: 0.3rem;
@@ -142,4 +219,17 @@
 
 .Chat__compose__button:hover {
   cursor: pointer;
+}
+
+.prewritten button {
+  margin-right: 10px;
+}
+
+.btn-primary-outline {
+  border-color: #4d73fa;
+  color: #4d73fa;
+}
+
+.btn-primary-outline:focus {
+  outline: 0;
 }
