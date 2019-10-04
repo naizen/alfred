@@ -6,7 +6,7 @@ export default function Login({ chatkit }) {
   let btnClasses = 'bg-primary text-white py-2 px-5 rounded-full text-lg';
 
   if (!name) {
-    btnClasses += ' opacity-50 cursor-not-allowed';
+    btnClasses += ' cursor-not-allowed';
   }
 
   const handleFormSubmit = e => {
